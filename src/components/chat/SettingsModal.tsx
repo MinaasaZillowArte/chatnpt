@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiX, FiSun, FiMoon, FiTrash2, FiSettings, FiSave, FiGift, FiMail, FiLink, FiLoader, FiCheck, FiAlertTriangle } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ChatSession } from '@/types/chat';
 import { Message } from '@/hooks/useChatLogic';
 

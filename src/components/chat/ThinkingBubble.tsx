@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiZap, FiEye, FiEyeOff } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ThinkingStep } from '@/hooks/useChatLogic';
 
 interface ThinkingBubbleProps {
@@ -11,17 +11,17 @@ const ThinkingBubble: React.FC<ThinkingBubbleProps> = ({ steps }) => {
   const [expanded, setExpanded] = React.useState(true);
   if (!steps || steps.length === 0) return null;
 
-  const bubbleVariants = {
+  const bubbleVariants: Variants = {
     hidden: { opacity: 0, y: 10, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.25, ease: "easeOut" } },
   };
 
-  const stepListVariants = {
+  const stepListVariants: Variants = {
     hidden: { opacity: 0, height: 0 },
     visible: { opacity: 1, height: 'auto', transition: { duration: 0.3, ease: "easeInOut", when: "beforeChildren", staggerChildren: 0.05 } },
     exit: { opacity: 0, height: 0, transition: { duration: 0.2, ease: "easeIn" } },
   };
-  
+
   const stepItemVariants = {
     hidden: { opacity: 0, x: -10 },
     visible: { opacity: 1, x: 0 },

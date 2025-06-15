@@ -12,7 +12,7 @@ import SettingsModal from '@/components/chat/SettingsModal';
 import Sidebar from '@/components/chat/Sidebar';
 import { useChatLogic, Message, UseChatLogicReturn } from '@/hooks/useChatLogic';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ChatSession } from '@/types/chat';
 
 const defaultTheme = 'light';
@@ -25,7 +25,7 @@ const generateUID = () => {
   return uid.substring(0, 80);
 };
 
-const modalVariants = {
+const pageModalVariants: Variants = { // Renamed to avoid conflict if imported, and typed
   hidden: { opacity: 0, scale: 0.95, y: 20 },
   visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
   exit: { opacity: 0, scale: 0.95, y: 20, transition: { duration: 0.15, ease: "easeIn" } },

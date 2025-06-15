@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FiChevronDown, FiCpu } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 interface ModelOption {
   alias: string;
@@ -23,6 +23,12 @@ interface ModelSelectorProps {
 const ModelSelector: React.FC<ModelSelectorProps> = ({ currentModelAlias, onModelChange, disabled }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const dropdownMenuVariants: Variants = {
+    initial: { opacity: 0, scale: 0.95, y: -10 },
+    animate: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.15, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.95, y: -10, transition: { duration: 0.15, ease: "easeOut" } },
+  };
 
   const selectedModel = models.find(m => m.alias === currentModelAlias) || models[0];
 
@@ -56,10 +62,7 @@ const ModelSelector: React.FC<ModelSelectorProps> = ({ currentModelAlias, onMode
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: -10 }}
-            transition={{ duration: 0.15, ease: "easeOut" }}
+        variants={dropdownMenuVariants} initial="initial" animate="animate" exit="exit"
             className="absolute left-1/2 -translate-x-1/2 mt-2 w-72 origin-top rounded-md shadow-lg bg-[var(--card-bg)] ring-1 ring-[var(--border-color)] ring-opacity-5 focus:outline-none z-10 py-1"
             role="menu"
             aria-orientation="vertical"

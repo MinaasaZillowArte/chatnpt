@@ -14,7 +14,7 @@ import {
   FiChevronDown,
   FiFolder,
 } from 'react-icons/fi';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ChatSession } from '@/types/chat';
 
 interface SidebarProps {
@@ -65,7 +65,7 @@ export default function Sidebar({
   const activeSessions = chatSessions.filter(s => !s.isArchived);
   const archivedSessions = chatSessions.filter(s => s.isArchived);
 
-  const sidebarVariants = {
+  const sidebarVariants: Variants = {
     open: {
       x: 0,
       transition: { type: 'spring', stiffness: 300, damping: 30, duration: 0.3 },
@@ -76,9 +76,15 @@ export default function Sidebar({
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: -10 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const archiveListVariants: Variants = {
+    hidden: { height: 0, opacity: 0 },
+    visible: { height: 'auto', opacity: 1, transition: { duration: 0.25, ease: 'easeInOut' } },
+    exit: { height: 0, opacity: 0, transition: { duration: 0.25, ease: 'easeInOut' } },
   };
 
   const renderSessionItem = (session: ChatSession, isArchivedList: boolean) => (
@@ -223,10 +229,7 @@ export default function Sidebar({
           <AnimatePresence>
             {showArchived && (
               <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25, ease: 'easeInOut' }}
+            variants={archiveListVariants} initial="hidden" animate="visible" exit="exit"
                 className="mt-2 pl-2 border-l-2 border-[var(--border-color-translucent)] overflow-hidden"
               >
                 {archivedSessions.length > 0 ? (
