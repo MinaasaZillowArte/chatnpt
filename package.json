@@ -25,7 +25,6 @@
     "@headlessui/react": "^2.2.4",
     "@libsql/client": "^0.15.9",
     "@prisma/client": "^6.9.0",
-    "@sentry/nextjs": "^8.5.0",
     "argon2": "^0.43.0",
     "cookies-next": "^5.1.0",
     "firebase": "^11.9.1",

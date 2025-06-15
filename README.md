@@ -21,14 +21,6 @@ npm run dev
 
 ## Production Readiness Features
 
-### Sentry Integration
-1. Install Sentry package:
-```bash
-npm install @sentry/nextjs
-```
-2. Configure Sentry:
-   - Create `sentry.client.config.js` and `sentry.server.config.js` files
-   - Add `NEXT_PUBLIC_SENTRY_DSN` environment variable
 
 ### Axiom Integration
 1. Install Axiom package:
@@ -58,8 +50,6 @@ Access at `/api/health`
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `NEXT_PUBLIC_SENTRY_DSN` | Sentry DSN for client-side errors | Yes |
-| `SENTRY_DSN` | Sentry DSN for server-side errors | Yes |
 | `AXIOM_TOKEN` | Axiom API token | Yes |
 | `TURSO_DATABASE_URL` | Turso database URL | Production |
 | `TURSO_AUTH_TOKEN` | Turso authentication token | Production |
@@ -86,7 +76,6 @@ npm start
 
 Integration tests are available at the `/test` page. This page provides links to test the following integrations:
 
-- **Sentry**: Click "Test Sentry" to trigger an error that should be captured by Sentry
 - **Axiom**: Click "Test Axiom" to send a test log that should appear in Axiom
 
-After triggering the tests, verify the results in your Sentry and Axiom dashboards.
+After triggering the tests, verify the results in your Axiom dashboard.
