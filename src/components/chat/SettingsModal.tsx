@@ -105,10 +105,24 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     onClose();
   };
 
-  const modalVariants = {
+  const modalVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.2, ease: "easeOut" } },
-    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.15, ease: "easeIn" } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.15,
+        ease: "easeIn"
+      }
+    },
   };
 
   const backdropVariants = {

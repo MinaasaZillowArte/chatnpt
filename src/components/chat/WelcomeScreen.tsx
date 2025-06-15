@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiZap, FiCpu, FiEdit3, FiCode, FiGlobe } from 'react-icons/fi'; // Added FiGlobe for "Limitations"
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 interface WelcomeScreenProps {
   onPromptSuggestionClick: (prompt: string) => void;
@@ -19,9 +19,16 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onPromptSuggestionClick }
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100
+      }
+    },
   };
 
   return (
