@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next dev"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "@headlessui/react": "^2.2.4",
     "@libsql/client": "^0.15.9",
     "@prisma/client": "^6.9.0",
+    "@sentry/nextjs": "^8.5.0",
     "argon2": "^0.43.0",
     "cookies-next": "^5.1.0",
     "firebase": "^11.9.1",
@@ -31,6 +34,7 @@
     "katex": "^0.16.22",
     "lucide-react": "^0.511.0",
     "next": "^15.2.5",
+    "next-axiom": "^1.9.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
