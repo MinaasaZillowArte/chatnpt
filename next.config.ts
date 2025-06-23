@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/opengen/v1/completions/chat',
+        source: '/api/opengen/v1/chat/completions',
         destination: '/api/chat',
       },
     ]

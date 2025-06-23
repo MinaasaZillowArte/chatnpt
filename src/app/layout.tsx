@@ -7,7 +7,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ChatNPT",
-  description: "ChatNPT is Neural Process Transformer",
+  description: "ChatNPT is Neural Process Transformer, ChatNPT is AI Platform and Locally from Indonesian Team Made",
+  icons: {
+    icon: "/opengen.svg",
+  },
 };
 
 import ErrorBoundary from '@/components/ErrorBoundary';
