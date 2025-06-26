@@ -383,7 +383,7 @@ export function useChatLogic({
                 content: msg.versions && typeof msg.activeVersion === 'number' ? msg.versions[msg.activeVersion].text : msg.text,
             }));
 
-      const response = await fetch('/api/opengen/v1/completions/chat', {
+      const response = await fetch('/api/opengen/v1/chat/completions', {
         method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
